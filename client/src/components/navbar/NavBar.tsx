@@ -11,11 +11,11 @@ const NAVBAR_ITEMS = [
 		name: "Contact",
 		link: "",
 	},
-]
+];
 
 const NavBar = () => {
 	return (
-		<div className=" px-6 py-4 w-full flex justify-between items-center text-primary-light">
+		<div className=" z-50 sticky top-0 px-6 py-4 w-full flex justify-between items-center text-primary-light bg-primary">
 			<div className=" font-bold text-xl">Portfolio</div>
 			<div className=" flex items-center gap-4">
 				{NAVBAR_ITEMS.map((eachItem, index) => (
@@ -28,7 +28,7 @@ const NavBar = () => {
 				))}
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default NavBar
+export default NavBar;

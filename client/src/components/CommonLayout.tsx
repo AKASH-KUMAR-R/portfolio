@@ -1,20 +1,18 @@
-import type { ReactNode } from "react"
-import type React from "react"
-import NavBar from "./navbar/NavBar"
+import type { ReactNode } from "react";
+import type React from "react";
+import NavBar from "./navbar/NavBar";
 
 type CommonLayoutProps = {
-	children: ReactNode
-}
+	children: ReactNode;
+};
 
 const CommonLayout: React.FC<CommonLayoutProps> = ({ children }) => {
 	return (
-		<div className=" w-full h-screen bg-primary">
+		<div className=" w-full h-screen bg-primary overflow-y-auto">
 			<NavBar />
-			<div className=" px-6 h-[calc(100%-64px)] overflow-y-auto space-y-10">
-				{children}
-			</div>
+			<div className=" px-6 h-full space-y-10">{children}</div>
 		</div>
-	)
-}
+	);
+};
 
-export default CommonLayout
+export default CommonLayout;
