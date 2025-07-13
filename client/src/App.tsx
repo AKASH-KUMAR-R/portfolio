@@ -4,6 +4,12 @@ import ContactSection from "./components/ContactSection";
 import HeroSection from "./components/HeroSection";
 import ProjectSection from "./components/ProjectSection";
 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+ScrollTrigger.defaults({
+	scroller: "#scroll-container",
+});
+
 function App() {
 	return (
 		<div>

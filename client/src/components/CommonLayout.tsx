@@ -8,7 +8,10 @@ type CommonLayoutProps = {
 
 const CommonLayout: React.FC<CommonLayoutProps> = ({ children }) => {
 	return (
-		<div className=" w-full h-screen bg-primary overflow-y-auto">
+		<div
+			id="scroll-container"
+			className=" w-full h-screen bg-primary overflow-y-auto"
+		>
 			<NavBar />
 			<div className=" px-6 h-full space-y-10">{children}</div>
 		</div>
