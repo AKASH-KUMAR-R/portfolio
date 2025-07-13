@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { useGSAP } from "@gsap/react";
+import StackBox from "./stack-box/StackBox";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,7 @@ const ProjectList = [
 		description: "",
 		imageUrl: sparshamImage,
 		startDate: "",
-		stack: "React, Node, Express, MongoDB",
+		stack: "react,tailwind,node,express,mongo",
 		role: "Full Stack",
 	},
 	{
@@ -24,7 +25,7 @@ const ProjectList = [
 		description: "",
 		imageUrl: deviMessImage,
 		startDate: "React, Node, Express, Postgre",
-		stack: "React, Node, Express, Postgre",
+		stack: "react,tailwind,node,express,postgre",
 		role: "Full Stack",
 	},
 	{
@@ -32,14 +33,14 @@ const ProjectList = [
 		description: "",
 		imageUrl: udhymaImage,
 		startDate: "",
-		stack: "React, Node, Express, MongoDB",
+		stack: "react,tailwind,node,express,mongo",
 		role: "Full Stack",
 	},
 	{
 		name: "Student Tutor Management System",
 		description: "",
 		imageUrl: sapienceImage,
-		startDate: "React, Django, Postgre",
+		stack: "react,tailwind,django,postgre",
 		role: "Frontend",
 	},
 ];
@@ -62,22 +63,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 	return (
 		<div
 			ref={divRef}
-			className={` h-96 flex flex-col items-center  ${
+			className={` h-full flex flex-col items-center  ${
 				isReversed ? " lg:flex-row-reverse " : " lg:flex-row"
 			} gap-3`}
 		>
 			<div
-				className="image w-full max-w-lg h-full bg-primary-500 bg-cover bg-center overflow-hidden rounded-md"
+				className="image w-full max-w-lg h-80 bg-primary-500 bg-cover bg-center overflow-hidden rounded-md"
 				style={{
 					backgroundImage: `url(${imageUrl})`,
 				}}
 			></div>
-			<div className=" w-full items-center justify-center flex flex-col gap-1 text-primary-light font-bold text-sm ">
+			<div className=" w-full flex flex-col gap-4 text-primary-light font-bold text-sm text-center">
 				<span className="project-title text-2xl">{name}</span>
 				{/* <span className=" opacity-60">May 2024</span> */}
-				<div className=" flex justify-between opacity-60">
-					<span className=" ">{projectDetails.stack}</span>
-					<span className="project-role">{projectDetails.role}</span>
+				<div className=" w-full flex flex-wrap justify-center gap-3">
+					{projectDetails.stack?.split(",").map((eachStack) => (
+						<StackBox key={eachStack + projectDetails.name} stack={eachStack} />
+					))}
 				</div>
 			</div>
 		</div>
@@ -132,15 +134,33 @@ const ProjectSection = () => {
 						start: "top 80%",
 						end: "+=400",
 						scrub: true,
-						markers: true,
 					},
 				}
 			);
 		});
+
+		targetRefs.current.forEach((eachCard) => {
+			const stackTags = eachCard?.querySelectorAll(".stack-tag");
+
+			if (!stackTags) return;
+
+			gsap.from(stackTags, {
+				y: 50,
+				opacity: 0,
+				ease: "bounce.out",
+				stagger: 0.1,
+				duration: 1,
+				scrollTrigger: {
+					trigger: eachCard,
+					toggleActions: "play none play none", // play only once
+					// markers: true,
+				},
+			});
+		});
 	});
 	return (
 		<div ref={containerRef} className=" w-full overflow-hidden">
-			<div className=" flex flex-col gap-4">
+			<div className=" flex flex-col gap-20">
 				{ProjectList.map((eachProject, index) => (
 					<ProjectCard
 						isReversed={index % 2 === 1}
