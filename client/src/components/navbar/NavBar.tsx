@@ -60,11 +60,13 @@ const NavBar = () => {
 					/>
 				</div>
 				{NAVBAR_ITEMS.map((eachItem, index) => (
-					<a href={eachItem.link} className=" no-underline">
-						<div
-							key={index + eachItem.name}
-							className="px-5 py-2 font-semibold  bg-primary-500 hover:bg-primary rounded-3xl transition-colors cursor-pointer"
-						>
+					<a
+						key={index + eachItem.name}
+						href={eachItem.link}
+						className=" no-underline"
+						onClick={triggerNavBar}
+					>
+						<div className="px-5 py-2 font-semibold  bg-primary-500 hover:bg-primary rounded-3xl transition-colors cursor-pointer">
 							{eachItem.name}
 						</div>
 					</a>
@@ -73,12 +75,15 @@ const NavBar = () => {
 
 			<div className=" hidden lg:flex items-center gap-4">
 				{NAVBAR_ITEMS.map((eachItem, index) => (
-					<div
+					<a
 						key={index + eachItem.name}
-						className="px-5 py-1 font-semibold  bg-primary-500 rounded-3xl "
+						href={eachItem.link}
+						className=" no-underline"
 					>
-						{eachItem.name}
-					</div>
+						<div className="px-5 py-1 font-semibold  bg-primary-500 rounded-3xl ">
+							{eachItem.name}
+						</div>
+					</a>
 				))}
 			</div>
 		</div>

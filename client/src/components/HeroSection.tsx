@@ -33,7 +33,11 @@ const ImportTags = [
 const getRandom = (min: number, max: number) =>
 	Math.random() * (max - min) + min;
 
-const HeroSection = () => {
+type HeroSectionProps = {
+	secRef: (el: HTMLDivElement | null) => void;
+};
+
+const HeroSection = ({ secRef }: HeroSectionProps) => {
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	const targetRefs = useRef<Array<HTMLDivElement | null>>([]);
 
@@ -83,12 +87,15 @@ const HeroSection = () => {
 	}, []);
 	return (
 		<div
-			id="hero"
-			ref={containerRef}
+			ref={(el) => {
+				containerRef.current = el;
+				secRef(el);
+			}}
 			className=" relative w-full text-primary-light h-full  overflow-hidden"
 		>
 			{ImportTags.map((eachItem, index) => (
 				<div
+					key={index}
 					className=" absolute p-2 border border-white w-fit rounded-md"
 					ref={(el) => {
 						targetRefs.current[index] = el;

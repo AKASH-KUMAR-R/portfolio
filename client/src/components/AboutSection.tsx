@@ -2,9 +2,16 @@ import profileImg from "/profile.jpg";
 
 const ParagraphContent: Array<Record<"description", string>> = [];
 
-const AboutSection = () => {
+type AboutSectionProps = {
+	secRef: (el: HTMLDivElement | null) => void;
+};
+
+const AboutSection = ({ secRef }: AboutSectionProps) => {
 	return (
-		<div id="about" className=" w-full flex flex-col gap-6 text-primary-light">
+		<div
+			ref={secRef}
+			className=" w-full flex flex-col gap-6 text-primary-light"
+		>
 			<h2 className=" font-bold text-3xl md:text-5xl ">About Me</h2>
 
 			<div className=" flex flex-col lg:flex-row lg:items-center gap-8">

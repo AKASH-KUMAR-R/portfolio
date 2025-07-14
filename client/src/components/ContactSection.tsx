@@ -1,10 +1,14 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-const ContactSection = () => {
+type ContactSectionProps = {
+	secRef: (el: HTMLDivElement | null) => void;
+};
+
+const ContactSection = ({ secRef }: ContactSectionProps) => {
 	return (
 		<section
-			id="contact"
+			ref={secRef}
 			className="w-full bg-[--color-primary] text-primary-light py-16 px-6"
 		>
 			<div className=" flex flex-col items-center">

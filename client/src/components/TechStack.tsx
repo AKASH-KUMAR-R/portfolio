@@ -28,7 +28,11 @@ const techStacks = [
 gsap.registerPlugin(Draggable);
 gsap.registerPlugin(InertiaPlugin);
 
-const TechStack = () => {
+type TechSectionProps = {
+	secRef: (el: HTMLDivElement | null) => void;
+};
+
+const TechStack = ({ secRef }: TechSectionProps) => {
 	const constraintsRef = useRef<HTMLDivElement | null>(null);
 
 	useGSAP(() => {
@@ -63,7 +67,7 @@ const TechStack = () => {
 	);
 
 	return (
-		<section id="tech" className="">
+		<section ref={secRef}>
 			<div>
 				<h2 className=" font-bold text-white text-3xl md:text-5xl">
 					My Tech Stack
@@ -74,7 +78,7 @@ const TechStack = () => {
 				>
 					{stacks.map((tech, index) => (
 						<div
-							key={index}
+							key={index + tech.name}
 							className={` stack-drag w-32 flex flex-col items-center p-4  bg-opacity-70 rounded-lg ${tech.borderColor} ${tech.shadowColor} ${tech.textColor} `}
 						>
 							<div className="text-secondary mb-2">

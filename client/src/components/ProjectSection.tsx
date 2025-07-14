@@ -93,7 +93,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 	);
 };
 
-const ProjectSection = () => {
+type ProjectsSectionProps = {
+	secRef: (el: HTMLDivElement | null) => void;
+};
+
+const ProjectSection = ({ secRef }: ProjectsSectionProps) => {
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	const targetRefs = useRef<Array<HTMLDivElement | null>>([]);
 
@@ -169,7 +173,13 @@ const ProjectSection = () => {
 		});
 	});
 	return (
-		<div id="projects" ref={containerRef} className=" w-full overflow-hidden">
+		<div
+			ref={(el) => {
+				containerRef.current = el;
+				secRef(el);
+			}}
+			className=" w-full overflow-hidden"
+		>
 			<h2 className=" font-bold  text-3xl md:text-5xl text-primary-light">
 				My Projects
 			</h2>
