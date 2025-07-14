@@ -14,34 +14,38 @@ gsap.registerPlugin(ScrollTrigger);
 const ProjectList = [
 	{
 		name: "Sparsham Arimpur Elderly Care Management System",
-		description: "",
+		description:
+			"A service management platform built for local governance — enabling Arimpur Panchayat to efficiently manage and monitor their social welfare services and beneficiaries.",
 		imageUrl: sparshamImage,
 		startDate: "",
 		stack: "react,tailwind,node,express,mongo",
-		role: "Full Stack",
+		role: "Full Stack Role",
 	},
 	{
 		name: "Mess Management System",
-		description: "",
+		description:
+			"A smart and streamlined platform designed to simplify mess and utility billing for a privately run mess. Built to manage members, automate billing, and provide full transparency for both admin and users.",
 		imageUrl: deviMessImage,
 		startDate: "React, Node, Express, Postgre",
 		stack: "react,tailwind,node,express,postgre",
-		role: "Full Stack",
+		role: "Full Stack Role",
 	},
 	{
 		name: "Govt Conclave Event Management System",
-		description: "",
+		description:
+			"A large-scale web platform developed to improve collaboration between students, government bodies, and industry leaders. The site streamlines event participation, idea submission, and institutional coordination for state-level conclaves and innovation programs.",
 		imageUrl: udhymaImage,
 		startDate: "",
 		stack: "react,tailwind,node,express,mongo",
-		role: "Full Stack",
+		role: "Full Stack Role",
 	},
 	{
 		name: "Student Tutor Management System",
-		description: "",
+		description:
+			"A role-based web platform designed to streamline academic management for tutors, students, and admins. Built to digitize class scheduling, test creation, progress tracking, and resource requests — all in one place.",
 		imageUrl: sapienceImage,
 		stack: "react,tailwind,django,postgre",
-		role: "Frontend",
+		role: "Frontend Role",
 	},
 ];
 
@@ -65,7 +69,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 			ref={divRef}
 			className={` h-full flex flex-col items-center  ${
 				isReversed ? " lg:flex-row-reverse " : " lg:flex-row"
-			} gap-3`}
+			} gap-3 px-2`}
 		>
 			<div
 				className="image w-full max-w-lg h-80 bg-primary-500 bg-cover bg-center overflow-hidden rounded-md"
@@ -75,12 +79,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 			></div>
 			<div className=" w-full flex flex-col gap-4 text-primary-light font-bold text-sm text-center">
 				<span className="project-title text-2xl">{name}</span>
-				{/* <span className=" opacity-60">May 2024</span> */}
+				<div className=" self-center w-full max-w-lg opacity-60 text-justify">
+					{projectDetails.description}
+				</div>
 				<div className=" w-full flex flex-wrap justify-center gap-3">
 					{projectDetails.stack?.split(",").map((eachStack) => (
 						<StackBox key={eachStack + projectDetails.name} stack={eachStack} />
 					))}
 				</div>
+				<span className=" opacity-60 ">{projectDetails.role}</span>
 			</div>
 		</div>
 	);
@@ -144,18 +151,21 @@ const ProjectSection = () => {
 
 			if (!stackTags) return;
 
-			gsap.from(stackTags, {
-				y: 50,
-				opacity: 0,
-				ease: "bounce.out",
-				stagger: 0.1,
-				duration: 1,
-				scrollTrigger: {
-					trigger: eachCard,
-					toggleActions: "play none play none", // play only once
-					// markers: true,
-				},
-			});
+			gsap
+				.timeline({
+					scrollTrigger: {
+						trigger: eachCard,
+						start: "top 80%",
+						toggleActions: "play none play none",
+					},
+				})
+				.from(stackTags, {
+					y: 50,
+					opacity: 0,
+					stagger: 0.1,
+					ease: "back.out(1.7)",
+					duration: 0.6,
+				});
 		});
 	});
 	return (
