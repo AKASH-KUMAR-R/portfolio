@@ -124,7 +124,6 @@ const ProjectSection = ({ secRef }: ProjectsSectionProps) => {
 						start: "top 80%",
 						end: "+=400",
 						scrub: true,
-						markers: true,
 					},
 				}
 			);
