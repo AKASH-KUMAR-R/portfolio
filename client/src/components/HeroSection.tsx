@@ -83,6 +83,7 @@ const HeroSection = () => {
 	}, []);
 	return (
 		<div
+			id="hero"
 			ref={containerRef}
 			className=" relative w-full text-primary-light h-full  overflow-hidden"
 		>

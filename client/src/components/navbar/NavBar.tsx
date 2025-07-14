@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TbLayoutNavbar } from "react-icons/tb";
 
 const NAVBAR_ITEMS = [
@@ -46,7 +46,7 @@ const NavBar = () => {
 			</div>
 
 			<div
-				className={` px-4 pt-5 z-40 w-11/12 h-screen flex flex-col gap-4  lg:hidden absolute right-0 top-0 bg-primary-500 rounded-l-md overflow-y-auto ${
+				className={` px-4 pt-5 z-50 w-11/12 h-screen flex flex-col gap-4  lg:hidden absolute right-0 top-0 bg-primary-500 rounded-l-md overflow-y-auto ${
 					isOpen ? " translate-0" : " translate-x-full"
 				} transition-transform duration-300`}
 			>
@@ -60,12 +60,14 @@ const NavBar = () => {
 					/>
 				</div>
 				{NAVBAR_ITEMS.map((eachItem, index) => (
-					<div
-						key={index + eachItem.name}
-						className="px-5 py-2 font-semibold  bg-primary-500 hover:bg-primary rounded-3xl transition-colors cursor-pointer"
-					>
-						{eachItem.name}
-					</div>
+					<a href={eachItem.link} className=" no-underline">
+						<div
+							key={index + eachItem.name}
+							className="px-5 py-2 font-semibold  bg-primary-500 hover:bg-primary rounded-3xl transition-colors cursor-pointer"
+						>
+							{eachItem.name}
+						</div>
+					</a>
 				))}
 			</div>
 

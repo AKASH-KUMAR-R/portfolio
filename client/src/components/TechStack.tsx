@@ -63,7 +63,7 @@ const TechStack = () => {
 	);
 
 	return (
-		<section id="tech-stack" className="">
+		<section id="tech" className="">
 			<div>
 				<h2 className=" font-bold text-white text-3xl md:text-5xl">
 					My Tech Stack

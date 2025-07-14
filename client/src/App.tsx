@@ -13,7 +13,7 @@ ScrollTrigger.defaults({
 
 function App() {
 	return (
-		<div>
+		<main>
 			<CommonLayout>
 				<HeroSection />
 				<AboutSection />
@@ -21,7 +21,7 @@ function App() {
 				<TechStack />
 				<ContactSection />
 			</CommonLayout>
-		</div>
+		</main>
 	);
 }
 

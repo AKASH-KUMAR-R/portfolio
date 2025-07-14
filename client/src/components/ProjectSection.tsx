@@ -169,7 +169,7 @@ const ProjectSection = () => {
 		});
 	});
 	return (
-		<div ref={containerRef} className=" w-full overflow-hidden">
+		<div id="projects" ref={containerRef} className=" w-full overflow-hidden">
 			<h2 className=" font-bold  text-3xl md:text-5xl text-primary-light">
 				My Projects
 			</h2>

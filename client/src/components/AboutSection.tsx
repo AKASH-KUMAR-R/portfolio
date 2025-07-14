@@ -4,7 +4,7 @@ const ParagraphContent: Array<Record<"description", string>> = [];
 
 const AboutSection = () => {
 	return (
-		<div className=" w-full flex flex-col gap-6 text-primary-light">
+		<div id="about" className=" w-full flex flex-col gap-6 text-primary-light">
 			<h2 className=" font-bold text-3xl md:text-5xl ">About Me</h2>
 
 			<div className=" flex flex-col lg:flex-row lg:items-center gap-8">
