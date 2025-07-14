@@ -170,7 +170,10 @@ const ProjectSection = () => {
 	});
 	return (
 		<div ref={containerRef} className=" w-full overflow-hidden">
-			<div className=" flex flex-col gap-20">
+			<h2 className=" font-bold  text-3xl md:text-5xl text-primary-light">
+				My Projects
+			</h2>
+			<div className=" pt-6 flex flex-col gap-20">
 				{ProjectList.map((eachProject, index) => (
 					<ProjectCard
 						isReversed={index % 2 === 1}

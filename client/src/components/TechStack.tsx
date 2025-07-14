@@ -64,8 +64,10 @@ const TechStack = () => {
 
 	return (
 		<section id="tech-stack" className="">
-			<div className=" mx-auto px-6">
-				<h2 className="text-4xl font-bold text-white">My Tech Stack</h2>
+			<div>
+				<h2 className=" font-bold text-white text-3xl md:text-5xl">
+					My Tech Stack
+				</h2>
 				<div
 					ref={constraintsRef}
 					className="w-full min-h-96 border-2 border-secondary rounded-lg flex flex-wrap justify-center items-center gap-8 pt-8 relative"
