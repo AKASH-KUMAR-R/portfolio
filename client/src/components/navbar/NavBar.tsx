@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TbLayoutNavbar } from "react-icons/tb";
 
 const NAVBAR_ITEMS = [

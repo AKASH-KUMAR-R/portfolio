@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import AnimatedTextBox from "./animate-components/AnimatedTextBox";
 
@@ -51,7 +51,7 @@ const HeroSection = ({ secRef }: HeroSectionProps) => {
 
 		console.log(containerHeight, containerWidth);
 
-		const velocities = ImportTags.map((_, index) => ({
+		const velocities = ImportTags.map(() => ({
 			x: getRandom(0.2, 1),
 			y: getRandom(0.2, 1),
 		}));

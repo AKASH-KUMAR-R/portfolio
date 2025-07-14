@@ -16,7 +16,7 @@ const AnimatedTextBox = ({ text, divRef, className }: AnimatedTextBoxProps) => {
 		let isDeleting = false;
 
 		const interval = setInterval(() => {
-			setDisplay((prev) => {
+			setDisplay(() => {
 				if (!isDeleting) {
 					// Typing phase
 					const next = text.slice(0, i + 1);

@@ -1,4 +1,3 @@
-import { IoLogoReact } from "react-icons/io5";
 import { getStackDetails } from "./stackConfig";
 
 type StackBoxProps = {

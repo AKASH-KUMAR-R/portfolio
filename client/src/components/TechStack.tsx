@@ -3,27 +3,9 @@ import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 
-import React, { useRef } from "react";
-import {
-	FaReact,
-	FaNodeJs,
-	FaHtml5,
-	FaCss3Alt,
-	FaJsSquare,
-	FaPython,
-	FaGitAlt,
-} from "react-icons/fa";
-import { stackConfig } from "./stack-box/stackConfig";
+import { useRef } from "react";
 
-const techStacks = [
-	{ icon: <FaReact size={50} />, name: "React" },
-	{ icon: <FaNodeJs size={50} />, name: "Node.js" },
-	{ icon: <FaHtml5 size={50} />, name: "HTML5" },
-	{ icon: <FaCss3Alt size={50} />, name: "CSS3" },
-	{ icon: <FaJsSquare size={50} />, name: "JavaScript" },
-	{ icon: <FaPython size={50} />, name: "Python" },
-	{ icon: <FaGitAlt size={50} />, name: "Git" },
-];
+import { stackConfig } from "./stack-box/stackConfig";
 
 gsap.registerPlugin(Draggable);
 gsap.registerPlugin(InertiaPlugin);
