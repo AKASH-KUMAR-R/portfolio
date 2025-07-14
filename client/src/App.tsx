@@ -5,6 +5,7 @@ import HeroSection from "./components/HeroSection";
 import ProjectSection from "./components/ProjectSection";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TechStack from "./components/TechStack";
 
 ScrollTrigger.defaults({
 	scroller: "#scroll-container",
@@ -17,6 +18,7 @@ function App() {
 				<HeroSection />
 				<AboutSection />
 				<ProjectSection />
+				<TechStack />
 				<ContactSection />
 			</CommonLayout>
 		</div>
